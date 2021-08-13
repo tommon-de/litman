@@ -40,6 +40,10 @@
     <%= form.label :status %>
     <%= form.select :status, User.statuses.map{|a| [t("user_status." + a.first), a.first]}, {}, {class: "col-sm-4 form-control"} %>
   </div>
+  <div class="field">
+    <%= form.label :nickname %>
+    <%= form.text_field :nickname %>
+  </div>
 
   <div class="actions">
     <%= form.submit %>
