@@ -38,7 +38,7 @@
 
   <div class="field">
     <%= form.label :status %>
-    <%= form.number_field :status %>
+    <%= form.select :status, User.statuses.map{|a| [t("user_status." + a.first), a.first]}, {}, {class: "col-sm-4 form-control"} %>
   </div>
 
   <div class="actions">
