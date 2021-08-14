@@ -1,7 +1,8 @@
 class Animal < ApplicationRecord
   include HTTParty
 
-    response = HTTParty.get("https://axoltlapi.herokuapp.com/",verify: false)
+  def self.fetch
+    response = HTTParty.get("https://axoltlapi.herokuapp.com/")
     response =  JSON.parse(response.to_json)
     animal = Animal.new(
       url:response['url'],
@@ -10,7 +11,7 @@ class Animal < ApplicationRecord
       api_repo:response['api_repo']
       )
     animal.save!
-
+  end
 
 
 end
