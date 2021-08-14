@@ -1,4 +1,6 @@
 class Animal < ApplicationRecord
+  after_save :push_remote
+  require 'open-uri'
   include HTTParty
 
   def self.fetch
@@ -12,4 +14,10 @@ class Animal < ApplicationRecord
       )
     animal.save!
   end
+  
+  private
+    def push_remote
+      data = Animal.first
+      request = HTTParty.post("http://requestbin.net/r/6syxuf6i", body:{data: data.to_json})
+    end
 end
