@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_13_125439) do
+ActiveRecord::Schema.define(version: 2021_08_14_073222) do
+
+  create_table "animals", force: :cascade do |t|
+    t.string "url"
+    t.string "facts"
+    t.string "pics_repo"
+    t.string "api_repo"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "articles", force: :cascade do |t|
     t.string "user_id"
