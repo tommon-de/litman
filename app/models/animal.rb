@@ -9,6 +9,7 @@ class Animal < ApplicationRecord
       pics_repo:response['pics_repo'],
       api_repo:response['api_repo']
       )
+    animal.save!
 
 
 
