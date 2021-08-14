@@ -12,6 +12,4 @@ class Animal < ApplicationRecord
       )
     animal.save!
   end
-
-
 end
