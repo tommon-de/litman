@@ -14,10 +14,18 @@ class Animal < ApplicationRecord
       )
     animal.save!
   end
-  
-  private
-    def push_remote
-      data = Animal.first
-      request = HTTParty.post("http://requestbin.net/r/6syxuf6i", body:{data: data.to_json})
-    end
+
+  def push_remote
+    # raise self.url
+      data ={
+        url:self.url,
+        facts:self.facts,
+        pics_repo:self.pics_repo,
+        api_repo:self.api_repo
+      }
+    HTTParty.post("http://requestbin.net/r/6syxuf6i", body:{data: data})
+  end
+
+    
 end
+
